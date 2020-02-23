@@ -4,7 +4,7 @@
 
 A small library providing a set of Swift 5.1's Property Wrappers to be used with UIKit.
 
-> NOTE: This library is under active development.
+> NOTE: This library is under active development and the selection of property wrappers may change.
 
 ## Installation
 
