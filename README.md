@@ -1,6 +1,10 @@
+<img src="images/helios-logo.png" alt="Swift logo" height="128">
+
 # Helios
 
 A small library providing a set of Swift 5.1's Property Wrappers to be used with UIKit.
+
+--
 
 ### @FixedSize
 
@@ -17,6 +21,8 @@ class MyView: UIView {
 
 `@FixedSize` takes up to three arguments: `width: CGFloat`, `height: CGFloat`, and `radius: CGFloat`. You can define width-only, width and height, or width, height and additionally clip the corners with a given radius.
 
+--
+
 ### @AspectRatio
 
 This property wrapper let's you quickly define, using AutoLayout dimensions of a wrapped `UIView`, respecting given aspect ratio.
@@ -32,6 +38,8 @@ class MyView: UIView {
 
 `@AspectRatio` takes up to two arguments: `ratio: CGFloat` and `radius: CGFloat`. Radius can additionally clip the corners with a given radius.
 
+--
+
 ### @RoundedCorners
 
 `@RoundedCorners` clips the corners of a wrapped UIView with a given radius.
@@ -45,6 +53,8 @@ class MyView: UIView {
 }
 ```
 
+--
+
 ### @FontSize
 
 `@FontSize` sets a system font of a given size on a wrapped `UILabel` instance. Additionally, you can set font weight and text color.
@@ -57,6 +67,8 @@ class MyView: UIView {
 	// …
 }
 ```
+
+--
 
 ### @TextStyle
 
