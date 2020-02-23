@@ -8,25 +8,25 @@
 import UIKit
 
 @propertyWrapper
-struct TextStyle<T: UILabel>: HeliosLabelWrapper {
-    var wrappedValue: T {
+public struct TextStyle<T: UILabel>: HeliosLabelWrapper {
+    public var wrappedValue: T {
         didSet {
             setFontStyle()
         }
     }
 
-    var textStyle: UIFont.TextStyle
-    var fontTraits: [UIFontDescriptor.SymbolicTraits]?
-    var textAlignment: NSTextAlignment?
-    var textColor: UIColor?
+    public var textStyle: UIFont.TextStyle
+    public var fontTraits: [UIFontDescriptor.SymbolicTraits]?
+    public var textAlignment: NSTextAlignment?
+    public var textColor: UIColor?
 
-    init(wrappedValue: T, _ textStyle: UIFont.TextStyle) {
+    public init(wrappedValue: T, _ textStyle: UIFont.TextStyle) {
         self.wrappedValue = wrappedValue
         self.textStyle = textStyle
         setFontStyle()
     }
 
-    func setFontStyle() {
+    internal func setFontStyle() {
         wrappedValue.font = styledFont()
         wrappedValue.adjustsFontForContentSizeCategory = true
         wrappedValue.numberOfLines = 0
@@ -46,26 +46,26 @@ struct TextStyle<T: UILabel>: HeliosLabelWrapper {
 }
 
 extension TextStyle {
-    init(wrappedValue: T, _ textStyle: UIFont.TextStyle, color: UIColor) {
+    public init(wrappedValue: T, _ textStyle: UIFont.TextStyle, color: UIColor) {
         self.init(wrappedValue: wrappedValue, textStyle)
         self.textColor = color
         applyTextStyles()
     }
 
-    init(wrappedValue: T, _ textStyle: UIFont.TextStyle, alignment: NSTextAlignment) {
+    public init(wrappedValue: T, _ textStyle: UIFont.TextStyle, alignment: NSTextAlignment) {
         self.init(wrappedValue: wrappedValue, textStyle)
         self.textAlignment = alignment
         applyTextStyles()
     }
 
-    init(wrappedValue: T, _ textStyle: UIFont.TextStyle, fontTraits: [UIFontDescriptor.SymbolicTraits]) {
+    public init(wrappedValue: T, _ textStyle: UIFont.TextStyle, fontTraits: [UIFontDescriptor.SymbolicTraits]) {
         self.wrappedValue = wrappedValue
         self.textStyle = textStyle
         self.fontTraits = fontTraits
         setFontStyle()
     }
 
-    init(wrappedValue: T, _ textStyle: UIFont.TextStyle, color: UIColor, alignment: NSTextAlignment) {
+    public init(wrappedValue: T, _ textStyle: UIFont.TextStyle, color: UIColor, alignment: NSTextAlignment) {
         self.init(wrappedValue: wrappedValue, textStyle)
         self.textColor = color
         self.textAlignment = alignment

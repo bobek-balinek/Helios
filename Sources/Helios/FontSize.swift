@@ -8,25 +8,25 @@
 import UIKit
 
 @propertyWrapper
-struct FontSize<T: UILabel>: HeliosLabelWrapper {
-    var wrappedValue: T {
+public struct FontSize<T: UILabel>: HeliosLabelWrapper {
+    public var wrappedValue: T {
         didSet {
             setFontStyle()
         }
     }
 
-    var fontSize: CGFloat
-    var fontWeight: UIFont.Weight?
-    var textAlignment: NSTextAlignment?
-    var textColor: UIColor?
+    public var fontSize: CGFloat
+    public var fontWeight: UIFont.Weight?
+    public var textAlignment: NSTextAlignment?
+    public var textColor: UIColor?
 
-    init(wrappedValue: T, _ size: CGFloat) {
+    public init(wrappedValue: T, _ size: CGFloat) {
         self.wrappedValue = wrappedValue
         self.fontSize = size
         setFontStyle()
     }
 
-    func setFontStyle() {
+    internal func setFontStyle() {
         wrappedValue.font = styledFont()
         wrappedValue.adjustsFontForContentSizeCategory = true
         wrappedValue.numberOfLines = 0
@@ -42,20 +42,20 @@ struct FontSize<T: UILabel>: HeliosLabelWrapper {
 }
 
 extension FontSize {
-    init(wrappedValue: T, _ size: CGFloat, weight: UIFont.Weight) {
+    public init(wrappedValue: T, _ size: CGFloat, weight: UIFont.Weight) {
         self.init(wrappedValue: wrappedValue, size)
         self.fontWeight = weight
         setFontStyle()
         applyTextStyles()
     }
 
-    init(wrappedValue: T, _ size: CGFloat, color: UIColor) {
+    public init(wrappedValue: T, _ size: CGFloat, color: UIColor) {
         self.init(wrappedValue: wrappedValue, size)
         self.textColor = color
         applyTextStyles()
     }
 
-    init(wrappedValue: T, _ size: CGFloat, weight: UIFont.Weight, color: UIColor) {
+    public init(wrappedValue: T, _ size: CGFloat, weight: UIFont.Weight, color: UIColor) {
         self.init(wrappedValue: wrappedValue, size)
         self.fontWeight = weight
         self.textColor = color
@@ -63,13 +63,13 @@ extension FontSize {
         applyTextStyles()
     }
 
-    init(wrappedValue: T, _ size: CGFloat, alignment: NSTextAlignment) {
+    public init(wrappedValue: T, _ size: CGFloat, alignment: NSTextAlignment) {
         self.init(wrappedValue: wrappedValue, size)
         self.textAlignment = alignment
         applyTextStyles()
     }
 
-    init(wrappedValue: T, _ size: CGFloat, weight: UIFont.Weight, color: UIColor, alignment: NSTextAlignment) {
+    public init(wrappedValue: T, _ size: CGFloat, weight: UIFont.Weight, color: UIColor, alignment: NSTextAlignment) {
         self.init(wrappedValue: wrappedValue, size)
         self.fontWeight = weight
         self.textColor = color
