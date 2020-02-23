@@ -4,7 +4,13 @@
 
 A small library providing a set of Swift 5.1's Property Wrappers to be used with UIKit.
 
---
+> NOTE: This library is under active development.
+
+## Installation
+
+Add this package to the Swift Packages list in your Xcode project settings. Alternatively add: `.package(url: "https://github.com/bobek-balinek/Helios.git", from: "0.1.0")`  to your `Package.swift` file.
+
+## Available property wrappers
 
 ### @FixedSize
 
@@ -21,7 +27,7 @@ class MyView: UIView {
 
 `@FixedSize` takes up to three arguments: `width: CGFloat`, `height: CGFloat`, and `radius: CGFloat`. You can define width-only, width and height, or width, height and additionally clip the corners with a given radius.
 
---
+---
 
 ### @AspectRatio
 
@@ -38,7 +44,7 @@ class MyView: UIView {
 
 `@AspectRatio` takes up to two arguments: `ratio: CGFloat` and `radius: CGFloat`. Radius can additionally clip the corners with a given radius.
 
---
+---
 
 ### @RoundedCorners
 
@@ -53,7 +59,7 @@ class MyView: UIView {
 }
 ```
 
---
+---
 
 ### @FontSize
 
@@ -68,7 +74,7 @@ class MyView: UIView {
 }
 ```
 
---
+---
 
 ### @TextStyle
 
@@ -83,3 +89,4 @@ class MyView: UIView {
 }
 ```
 
+Hope you'll enjoy using Helios in your iOS apps!
