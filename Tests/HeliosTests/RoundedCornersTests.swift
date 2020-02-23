@@ -12,7 +12,7 @@ import UIKit
 final class RoundedCornersTests: XCTestCase {
     static let radius: CGFloat = 25
 
-    @RoundedCorners(radius) var cornerRadiusView: ExampleView = ExampleView()
+    @RoundedCorners(radius) var cornerRadiusView: UIView = UIView()
 
     func testCornerRadius() {
         XCTAssertEqual(cornerRadiusView.layer.masksToBounds, true)

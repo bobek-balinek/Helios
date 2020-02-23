@@ -13,8 +13,8 @@ final class AspectRatioTests: XCTestCase {
     static let ratio: CGFloat = 1.5
     static let radius: CGFloat = 25
 
-    @AspectRatio(ratio) var view: ExampleView = ExampleView()
-    @AspectRatio(ratio, radius: radius) var roundedView: ExampleView = ExampleView()
+    @AspectRatio(ratio) var view: UIView = UIView()
+    @AspectRatio(ratio, radius: radius) var roundedView: UIView = UIView()
 
     func testConstraints() {
         XCTAssertEqual(view.constraints.count, 1)

@@ -28,7 +28,6 @@ struct FontSize<T: UILabel>: HeliosLabelWrapper {
 
     func setFontStyle() {
         wrappedValue.font = styledFont()
-        wrappedValue.translatesAutoresizingMaskIntoConstraints = false
         wrappedValue.adjustsFontForContentSizeCategory = true
         wrappedValue.numberOfLines = 0
     }

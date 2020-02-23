@@ -19,8 +19,8 @@ final class TextStyleTests: XCTestCase {
     @TextStyle(font, alignment: textAlignment) var alignedLabel: UILabel = UILabel()
 
     func testFontStyle() {
-        XCTAssertEqual(label.translatesAutoresizingMaskIntoConstraints, false)
         XCTAssertEqual(label.adjustsFontForContentSizeCategory, true)
+        XCTAssertEqual(label.font.pointSize, UIFont.preferredFont(forTextStyle: .body).pointSize)
     }
 
     func testTextColor() {
@@ -33,6 +33,7 @@ final class TextStyleTests: XCTestCase {
 
     static var allTests = [
         ("testFontStyle", testFontStyle),
-        ("testTextColor", testTextColor)
+        ("testTextColor", testTextColor),
+        ("testTextAlignment", testTextAlignment)
     ]
 }

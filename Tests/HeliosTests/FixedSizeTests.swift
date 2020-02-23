@@ -9,17 +9,13 @@ import XCTest
 import UIKit
 @testable import Helios
 
-internal class ExampleView: UIView {
-    // Dummy View
-}
-
 final class FixedSizeTests: XCTestCase {
     static let constant: CGFloat = 50
     static let radius: CGFloat = 25
 
-    @FixedSize(constant) var widthView: ExampleView = ExampleView()
-    @FixedSize(constant, constant) var widthAndHeightView: ExampleView = ExampleView()
-    @FixedSize(constant, constant, radius: radius) var cornerRadiusView: ExampleView = ExampleView()
+    @FixedSize(constant) var widthView: UIView = UIView()
+    @FixedSize(constant, constant) var widthAndHeightView: UIView = UIView()
+    @FixedSize(constant, constant, radius: radius) var cornerRadiusView: UIView = UIView()
 
     func testConstraints() {
         XCTAssertEqual(widthView.constraints.count, 1)
