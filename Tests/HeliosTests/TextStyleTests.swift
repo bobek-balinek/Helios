@@ -1,8 +1,38 @@
 //
-//  File.swift
-//  
+//  TextStyleTests.swift
+//  Helios
 //
 //  Created by Przemyslaw Bobak on 23/02/2020.
 //
 
-import Foundation
+import XCTest
+import UIKit
+@testable import Helios
+
+final class TextStyleTests: XCTestCase {
+    static let font: UIFont.TextStyle = .body
+    static let textColor: UIColor = UIColor.red
+    static let textAlignment: NSTextAlignment = .right
+
+    @TextStyle(font) var label: UILabel = UILabel()
+    @TextStyle(font, color: textColor) var coloredLabel: UILabel = UILabel()
+    @TextStyle(font, alignment: textAlignment) var alignedLabel: UILabel = UILabel()
+
+    func testFontStyle() {
+        XCTAssertEqual(label.translatesAutoresizingMaskIntoConstraints, false)
+        XCTAssertEqual(label.adjustsFontForContentSizeCategory, true)
+    }
+
+    func testTextColor() {
+        XCTAssertEqual(coloredLabel.textColor, TextStyleTests.textColor)
+    }
+
+    func testTextAlignment() {
+        XCTAssertEqual(alignedLabel.textAlignment, TextStyleTests.textAlignment)
+    }
+
+    static var allTests = [
+        ("testFontStyle", testFontStyle),
+        ("testTextColor", testTextColor)
+    ]
+}

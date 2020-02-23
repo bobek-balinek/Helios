@@ -1,8 +1,25 @@
 //
-//  File.swift
-//  
+//  RoundedCornersTests.swift
+//  Helios
 //
 //  Created by Przemyslaw Bobak on 23/02/2020.
 //
 
-import Foundation
+import XCTest
+import UIKit
+@testable import Helios
+
+final class RoundedCornersTests: XCTestCase {
+    static let radius: CGFloat = 25
+
+    @RoundedCorners(radius) var cornerRadiusView: ExampleView = ExampleView()
+
+    func testCornerRadius() {
+        XCTAssertEqual(cornerRadiusView.layer.masksToBounds, true)
+        XCTAssertEqual(cornerRadiusView.layer.cornerRadius, RoundedCornersTests.radius)
+    }
+
+    static var allTests = [
+        ("testCornerRadius", testCornerRadius)
+    ]
+}
